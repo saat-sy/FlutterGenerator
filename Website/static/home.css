@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+/* MainColor = #00ADFC */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #fafafa;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    background: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 1%;
+    box-shadow: 4px 5px 15px 1px #eeeeee;
+}
+
+header img {
+    height: 50px;
+}
+
+.upload_text{
+    width: 100%;
+    padding: 2% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload_text h1 {
+    font-size: 40px;
+    color: #4b4b4b;
+    text-align: center;
+}
+
+.upload_button_div{
+    width: 100%;
+    padding: 2% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload_button_div .upload_button {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 8px;
+    color: #FFF;
+    background-color: #00ADFC;
+}
+
+.upload_button_div .upload_button:hover {
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.l {
+	display: none;
+}
+
+.l .loader {
+	position: absolute;
+	top: 43%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	z-index: 2;
+}
+
+.l .loader li {
+	list-style: none;
+	width: 6px;
+	height: 25px;
+	background: #00ADFC;
+	margin: 0 4px;
+	border-radius: 2px;
+	animation: animate 0.7s infinite alternate;
+}
+@keyframes animate {
+	0% {
+		transform: scaleY(1);
+	}
+	25% {
+		transform: scaleY(1);
+	}
+	50% {
+		transform: scaleY(1);
+	}
+	75% {
+		transform: scaleY(1);
+	}
+	100% {
+		transform: scaleY(3);
+	}
+}
+
+.loader li:nth-child(1) {animation-delay: 0.1s;}
+.loader li:nth-child(2) {animation-delay: 0.2s;}
+.loader li:nth-child(3) {animation-delay: 0.3s;}
+.loader li:nth-child(4) {animation-delay: 0.4s;}
+.loader li:nth-child(5) {animation-delay: 0.5s;}
+.loader li:nth-child(6) {animation-delay: 0.6s;}
+
+#overlay {
+	position: fixed; /* Sit on top of the page content */
+	display: none; /* Hidden by default */
+	width: 100%; /* Full width (cover the whole page) */
+	height: 100%; /* Full height (cover the whole page) */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.2); /* Black background with opacity */
+	z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+  }

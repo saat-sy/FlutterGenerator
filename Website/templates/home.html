@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flutter Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}" media="screen" />
+    <link rel="icon" href="{{ url_for('static', filename='logo.svg') }}">
+
+    {{ dropzone.load_css() }}
+    {{ dropzone.style(
+        'border: 2px dashed #00ADFC;
+        border-radius: 20px;
+        margin: 0 30%;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 400px; 
+        box-shadow: 0px 0px 20px 5px #eaeaea;
+        color: #4b4b4b;
+        ') }}
+</head>
+<body>
+    <div id="overlay"></div>
+
+    <div class="l">
+        <ul class="loader">
+            <li class="lis"></li>
+            <li class="lis"></li>
+            <li class="lis"></li>
+            <li class="lis"></li>
+            <li class="lis"></li>
+            <li class="lis"></li>
+        </ul>
+    </div>
+
+    <header>
+        <img src="{{ url_for('static', filename='logo2.svg') }}" alt="Logo">
+        <nav></nav>
+    </header>
+
+    <div class="upload_text">
+        <h1>Upload an image to <br>generate Flutter Code</h1>
+    </div>
+
+    {{ dropzone.create(action='home') }}
+
+    <div class="upload_button_div">
+        <button class="upload_button" id="upload-btn">Upload</button>
+    </div>
+
+    {{ dropzone.load_js() }}
+    {{ dropzone.config(custom_init='dz = this;document.getElementById("upload-btn").addEventListener("click", function handler(e) {dz.processQueue();});',
+                        custom_options='autoProcessQueue: false,',
+                        max_files=1, timeout=10000, default_message='Drop files here!<br>And click on upload to upload it.') }}
+
+    <script>
+        document.getElementById("upload-btn").addEventListener("click", function handler(e) {
+            document.querySelector('.l').style.display = 'block';
+            document.querySelector('.lis').style.display = 'block';
+            document.querySelector('#overlay').style.display = 'block';    
+        });
+    </script>
+    
+</body>
+</html>
