@@ -38,31 +38,11 @@ def upload():
     
     result = predict(fileloc)
 
-    code = """ import \'package:flutter/material.dart\';
-        void main() {
-        class MyApp StatelessWidget {@override
-        Widget build(BuildContext context) {return MaterialApp(: 'Title',
-                theme: SData(: Colors.blue,
-home: BuildForm(),);
-        class SigninPage 
-            Widget build(BuildContext context) {
-                return Scaffold(body: LayoutBuilder(builder: (context, constraints) {
-                if (constraints.maxWidth > maxSize) {
-                    return narrowLayout();
-                } else {
-                Center wideLayout() => Center(
-                    child: SingleChildScrollView(
-        child: Column(children: 
-                    AppLinkToPage(text: 
-                ])));Padding narrowLayout() => Padding(
-                padding: const EdgeInsets.symmetric(horizontal: maxPadding),
-                child: wideLayout());
-        } """
-
-    # for r in result:
-    #     if r != '<SOS>' or r!= '<EOS>': 
-    #         code += r + ' '
-    # code = code.replace('<_N_>', '\n')
+    code = ''
+    for r in result:
+        if r != '<SOS>' or r!= '<EOS>': 
+            code += r + ' '
+    code = code.replace('<_N_>', '\n')
 
     return render_template("code.html", code=code)
 
